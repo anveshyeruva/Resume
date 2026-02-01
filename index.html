@@ -4,6 +4,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="description" content="Anvesh Reddy Yeruva - DevOps Engineer | AWS | Kubernetes | Terraform | CI/CD" />
+
+  <!-- Open Graph / LinkedIn Preview -->
+  <meta property="og:title" content="Anvesh Reddy Yeruva | DevOps Resume" />
+  <meta property="og:description" content="DevOps Engineer focused on AWS, Kubernetes, Terraform, CI/CD, automation, and production reliability." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://anveshyeruva.github.io/Resume/" />
+
   <title>Anvesh Reddy Yeruva | DevOps Resume</title>
 
   <style>
@@ -16,9 +23,12 @@
       --line: rgba(255,255,255,0.12);
       --shadow: 0 20px 60px rgba(0,0,0,0.35);
       --radius: 18px;
+      --focus: rgba(0, 210, 255, 0.55);
     }
 
     * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
     body{
       margin: 0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
@@ -32,7 +42,21 @@
     }
 
     a { color: inherit; text-decoration: none; }
-    a:hover { opacity: 0.92; }
+    a:hover { opacity: 0.94; }
+
+    /* Accessibility */
+    .skip-link{
+      position:absolute;
+      left:-999px;
+      top:10px;
+      padding:10px 12px;
+      border:1px solid var(--line);
+      border-radius:12px;
+      background: rgba(0,0,0,0.55);
+      color: var(--text);
+      z-index:999;
+    }
+    .skip-link:focus{ left: 12px; outline: 3px solid var(--focus); }
 
     .wrap{
       max-width: 980px;
@@ -59,6 +83,7 @@
       font-size: 13px;
       color: var(--muted);
       backdrop-filter: blur(10px);
+      white-space: nowrap;
     }
 
     .container{
@@ -86,16 +111,32 @@
     }
 
     .subtitle{
-      margin: 0 0 18px;
+      margin: 0 0 12px;
       color: var(--muted);
       font-size: 15.5px;
+      max-width: 62ch;
+    }
+
+    .metaRow{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 10px 0 0;
+      color: rgba(255,255,255,0.78);
+      font-size: 13.5px;
+    }
+    .metaRow span{
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
     }
 
     .ctaRow{
       display:flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-top: 16px;
+      margin-top: 18px;
     }
 
     .btn{
@@ -112,11 +153,17 @@
       font-size: 14px;
       transition: transform 0.15s ease, background 0.15s ease;
       backdrop-filter: blur(10px);
+      white-space: nowrap;
     }
 
     .btn:hover{
       transform: translateY(-1px);
       background: rgba(255,255,255,0.10);
+    }
+
+    .btn:focus{
+      outline: 3px solid var(--focus);
+      outline-offset: 2px;
     }
 
     .btnPrimary{
@@ -197,8 +244,81 @@
       font-size: 14px;
     }
 
+    /* Certifications (more presentable) */
+    .split{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .miniCard{
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      border-radius: 14px;
+      padding: 14px;
+    }
+    .miniTitle{
+      margin: 0 0 8px;
+      font-size: 13px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+    .certItem{
+      display:flex;
+      flex-direction: column;
+      gap: 6px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .certItem:last-child{ border-bottom: none; padding-bottom: 0; }
+    .certName{
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: -0.1px;
+    }
+    .certMeta{
+      font-size: 13px;
+      color: rgba(255,255,255,0.78);
+      display:flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap: 6px;
+      padding: 6px 9px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      font-size: 12px;
+      color: rgba(255,255,255,0.82);
+      white-space: nowrap;
+    }
+    .placeholder{
+      color: rgba(255,255,255,0.70);
+      font-size: 13px;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* Projects */
     .projects{
       grid-column: span 12;
+    }
+
+    .projHeader{
+      display:flex;
+      align-items:flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .projHeader p{ margin: 0; }
+    .projHeader .btn{
+      padding: 10px 14px;
+      font-size: 13.5px;
     }
 
     .projGrid{
@@ -215,21 +335,43 @@
       border-radius: 16px;
       padding: 14px;
       transition: transform 0.15s ease, background 0.15s ease;
+      position: relative;
+      overflow: hidden;
     }
     .proj:hover{
       transform: translateY(-2px);
       background: rgba(255,255,255,0.06);
     }
+    .proj:focus{
+      outline: 3px solid var(--focus);
+      outline-offset: 2px;
+    }
+
     .projTitle{
       margin: 0 0 6px;
-      font-weight: 700;
-      font-size: 14px;
+      font-weight: 800;
+      font-size: 14.5px;
+      letter-spacing: -0.15px;
     }
     .projDesc{
       margin: 0;
       color: var(--muted);
       font-size: 13px;
       line-height: 1.55;
+    }
+    .projTags{
+      margin-top: 10px;
+      display:flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .tag{
+      font-size: 12px;
+      color: rgba(255,255,255,0.78);
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      padding: 6px 8px;
+      border-radius: 999px;
     }
 
     .footer{
@@ -255,113 +397,235 @@
       .card{ grid-column: span 12; }
       .proj{ grid-column: span 12; }
       .wrap{ padding: 18px 14px 50px; }
+      .badge{ white-space: normal; }
+      .split{ grid-template-columns: 1fr; }
     }
   </style>
 </head>
 
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
   <div class="wrap">
-    <div class="topbar">
+    <div class="topbar" aria-label="Top information bar">
       <div class="badge">🚀 DevOps Portfolio • Resume</div>
       <div class="badge">📍 United States • Open to roles</div>
     </div>
 
     <div class="container">
-      <section class="hero">
-        <div>
-          <h1 class="name">Anvesh Reddy Yeruva</h1>
-          <p class="subtitle">
-            DevOps Engineer focused on AWS, Kubernetes, Terraform, CI/CD, automation, and production reliability.
-          </p>
+      <main id="main">
+        <section class="hero" aria-label="Intro section">
+          <div>
+            <h1 class="name">Anvesh Reddy Yeruva</h1>
+            <p class="subtitle">
+              DevOps Engineer focused on AWS, Kubernetes, Terraform, CI/CD, automation, and production reliability.
+            </p>
 
-          <div class="ctaRow">
-            <a class="btn btnPrimary" href="Anvesh_Reddy_Yeruva_Resume.pdf" target="_blank" rel="noopener">
-              📄 Download Resume
-            </a>
-            <a class="btn" href="https://www.linkedin.com/in/yar-agfrewd/" target="_blank" rel="noopener">
-              🔗 LinkedIn
-            </a>
-            <a class="btn" href="https://github.com/anveshyeruva" target="_blank" rel="noopener">
-              💻 GitHub
-            </a>
+            <div class="metaRow" aria-label="Key highlights">
+              <span>7+ years DevOps</span>
+              <span>AWS • Multi-cloud exposure</span>
+              <span>Kubernetes / EKS</span>
+              <span>IaC + CI/CD</span>
+            </div>
+
+            <div class="ctaRow" aria-label="Primary actions">
+              <a class="btn btnPrimary" href="Anvesh_Reddy_Yeruva_Resume.pdf" target="_blank" rel="noopener">
+                📄 Download Resume (PDF)
+              </a>
+              <a class="btn" href="Anvesh_Reddy_Yeruva_Resume.pdf" target="_blank" rel="noopener">
+                👀 View Resume
+              </a>
+              <a class="btn" href="mailto:anvesh.yeruva@gmail.com">
+                ✉️ Email
+              </a>
+              <a class="btn" href="https://www.linkedin.com/in/yar-agfrewd/" target="_blank" rel="noopener">
+                🔗 LinkedIn
+              </a>
+              <a class="btn" href="https://github.com/anveshyeruva" target="_blank" rel="noopener">
+                💻 GitHub
+              </a>
+            </div>
+
+            <div class="chips" style="margin-top:18px;" aria-label="Core skills">
+              <span class="chip">AWS</span>
+              <span class="chip">Kubernetes</span>
+              <span class="chip">Terraform</span>
+              <span class="chip">Ansible</span>
+              <span class="chip">Jenkins</span>
+              <span class="chip">GitHub Actions</span>
+              <span class="chip">Linux</span>
+              <span class="chip">Observability</span>
+              <span class="chip">Incident Response</span>
+            </div>
           </div>
 
-          <div class="chips" style="margin-top:18px;">
-            <span class="chip">AWS</span>
-            <span class="chip">Kubernetes</span>
-            <span class="chip">Terraform</span>
-            <span class="chip">Ansible</span>
-            <span class="chip">Jenkins</span>
-            <span class="chip">GitHub Actions</span>
-            <span class="chip">Linux</span>
-            <span class="chip">Observability</span>
+          <aside class="sideCard" aria-label="Quick stats">
+            <p class="sideTitle">Highlights</p>
+            <div class="stat"><span>Experience</span><span>7+ years</span></div>
+            <div class="stat"><span>Cloud</span><span>AWS + Multi-cloud</span></div>
+            <div class="stat"><span>Containers</span><span>Kubernetes / EKS</span></div>
+            <div class="stat"><span>Automation</span><span>IaC + CI/CD</span></div>
+            <div class="stat"><span>Cert</span><span>AWS SA – Pro</span></div>
+          </aside>
+        </section>
+
+        <section class="grid" aria-label="Details">
+          <div class="card">
+            <h3>What I do</h3>
+            <p class="muted" style="margin:0;">
+              I build and operate cloud platforms that are reliable, secure, and easy to deploy.
+              I enjoy automating infrastructure, streamlining delivery pipelines, and improving observability.
+            </p>
+
+            <ul class="list">
+              <li>CI/CD automation with Jenkins and GitHub Actions</li>
+              <li>Infrastructure as Code using Terraform and Ansible</li>
+              <li>Kubernetes deployments, troubleshooting, rollbacks, and scaling</li>
+              <li>AWS: EC2, IAM, VPC, S3, RDS, CloudWatch</li>
+            </ul>
           </div>
-        </div>
 
-        <aside class="sideCard">
-          <p class="sideTitle">Highlights</p>
-          <div class="stat"><span>Experience</span><span>7+ years</span></div>
-          <div class="stat"><span>Cloud</span><span>AWS + Multi-cloud</span></div>
-          <div class="stat"><span>Containers</span><span>Kubernetes / EKS</span></div>
-          <div class="stat"><span>Automation</span><span>IaC + CI/CD</span></div>
-        </aside>
-      </section>
+          <div class="card">
+            <h3>Security & reliability</h3>
+            <p class="muted" style="margin:0;">
+              Secure delivery and stable operations matter. I follow least-privilege patterns and
+              apply practical security controls in deployment pipelines.
+            </p>
 
-      <section class="grid">
-        <div class="card">
-          <h3>What I do</h3>
-          <p class="muted" style="margin:0;">
-            I build and operate cloud platforms that are reliable, secure, and easy to deploy.
-            I enjoy automating infrastructure, streamlining delivery pipelines, and improving observability.
-          </p>
-
-          <ul class="list">
-            <li>CI/CD automation with Jenkins and GitHub Actions</li>
-            <li>Infrastructure as Code using Terraform and Ansible</li>
-            <li>Kubernetes-based deployments, troubleshooting, and scaling</li>
-            <li>AWS services: EC2, IAM, VPC, S3, RDS, CloudWatch</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>Security & reliability</h3>
-          <p class="muted" style="margin:0;">
-            Secure delivery and stable operations matter. I follow least privilege patterns and
-            apply practical security controls in deployment pipelines.
-          </p>
-
-          <ul class="list">
-            <li>IAM least privilege, secrets handling, and secure pipelines</li>
-            <li>TLS/HTTPS, DNS awareness, PKI/cert handling</li>
-            <li>Monitoring & alerting across cloud and application layers</li>
-            <li>NIST-aligned security control awareness</li>
-          </ul>
-        </div>
-
-        <div class="card projects">
-          <h3>Projects</h3>
-          <p class="muted" style="margin:0;">
-            A few things I’m building and improving.
-          </p>
-
-          <div class="projGrid">
-            <a class="proj" href="https://github.com/anveshyeruva/mlops-qa-bugseverity" target="_blank" rel="noopener">
-              <p class="projTitle">MLOps QA Bug Severity</p>
-              <p class="projDesc">MLflow pipeline + automation for bug severity classification and tracking.</p>
-            </a>
-
-            <a class="proj" href="https://github.com/anveshyeruva/flask-cicd-starter" target="_blank" rel="noopener">
-              <p class="projTitle">CI/CD Starter Templates</p>
-              <p class="projDesc">Reusable pipeline patterns for build/test/deploy workflows.</p>
-            </a>
+            <ul class="list">
+              <li>IAM least privilege, secrets handling, and secure pipelines</li>
+              <li>Monitoring & alerting across infra and app layers</li>
+              <li>RCA mindset: incidents → fixes → runbooks</li>
+              <li>Security control awareness (NIST-aligned)</li>
+            </ul>
           </div>
-        </div>
-      </section>
 
-      <footer class="footer">
+          <div class="card">
+            <h3>Certifications</h3>
+            <p class="muted" style="margin:0;">
+              Current credentials + space reserved for upcoming certifications.
+            </p>
+
+            <div class="split" aria-label="Certifications grid">
+              <div class="miniCard">
+                <p class="miniTitle">Current</p>
+
+                <div class="certItem">
+                  <div class="certName">AWS Certified Solutions Architect – Professional</div>
+                  <div class="certMeta">
+                    <span class="pill">☁️ AWS</span>
+                    <span class="pill">🏗️ Architecture</span>
+                    <span class="pill">✅ Active</span>
+                  </div>
+                </div>
+
+                <!-- Add more current certs here if you want -->
+                <!--
+                <div class="certItem">
+                  <div class="certName">AWS Certified DevOps Engineer – Professional</div>
+                  <div class="certMeta">
+                    <span class="pill">AWS</span><span class="pill">DevOps</span><span class="pill">Planned</span>
+                  </div>
+                </div>
+                -->
+              </div>
+
+              <div class="miniCard">
+                <p class="miniTitle">Future</p>
+                <p class="placeholder">
+                  Add upcoming certifications here (planned or in-progress). This section is intentionally reserved so your portal stays future-proof.
+                </p>
+                <div class="projTags" style="margin-top:12px;">
+                  <span class="tag">AWS DevOps Pro</span>
+                  <span class="tag">AZ-400</span>
+                  <span class="tag">CKA/CKAD</span>
+                </div>
+                <p class="placeholder" style="margin-top:10px;">
+                  (Replace these placeholders with your real targets when ready.)
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Role targets</h3>
+            <p class="muted" style="margin:0;">
+              Roles where I can own reliability, automation, and scalable delivery.
+            </p>
+            <div class="chips">
+              <span class="chip">DevOps Engineer</span>
+              <span class="chip">SRE</span>
+              <span class="chip">Platform Engineer</span>
+              <span class="chip">Cloud Engineer</span>
+            </div>
+          </div>
+
+          <div class="card projects">
+            <div class="projHeader">
+              <div>
+                <h3 style="margin:0 0 6px;">Featured Projects</h3>
+                <p class="muted">
+                  A few things I’m building and improving (with real engineering focus).
+                </p>
+              </div>
+              <a class="btn" href="https://github.com/anveshyeruva?tab=repositories" target="_blank" rel="noopener">
+                📌 View all repos
+              </a>
+            </div>
+
+            <div class="projGrid">
+              <a class="proj" href="https://github.com/anveshyeruva/mlops-qa-bugseverity" target="_blank" rel="noopener">
+                <p class="projTitle">MLOps QA Bug Severity</p>
+                <p class="projDesc">End-to-end ML pipeline with experiment tracking, automation, and reproducible runs.</p>
+                <div class="projTags" aria-label="Project tags">
+                  <span class="tag">Python</span>
+                  <span class="tag">MLflow</span>
+                  <span class="tag">Pipelines</span>
+                </div>
+              </a>
+
+              <a class="proj" href="https://github.com/anveshyeruva/flask-cicd-starter" target="_blank" rel="noopener">
+                <p class="projTitle">Flask CI/CD Starter</p>
+                <p class="projDesc">Starter kit for build/test/deploy using container workflows and CI automation.</p>
+                <div class="projTags" aria-label="Project tags">
+                  <span class="tag">Docker</span>
+                  <span class="tag">GitHub Actions</span>
+                  <span class="tag">Flask</span>
+                </div>
+              </a>
+
+              <a class="proj" href="https://github.com/anveshyeruva/Resume" target="_blank" rel="noopener">
+                <p class="projTitle">Resume Portal (GitHub Pages)</p>
+                <p class="projDesc">Shareable portfolio hub with fast loading, clean UI, and recruiter-friendly actions.</p>
+                <div class="projTags" aria-label="Project tags">
+                  <span class="tag">GitHub Pages</span>
+                  <span class="tag">HTML/CSS</span>
+                  <span class="tag">SEO</span>
+                </div>
+              </a>
+            </div>
+
+            <!-- Optional: Add more project cards here later -->
+            <!--
+            <div class="projGrid" style="margin-top:14px;">
+              <a class="proj" href="https://github.com/..." target="_blank" rel="noopener">
+                <p class="projTitle">New Project</p>
+                <p class="projDesc">Short, crisp 1-liner about value and tech stack.</p>
+                <div class="projTags">
+                  <span class="tag">Terraform</span><span class="tag">AWS</span><span class="tag">CI/CD</span>
+                </div>
+              </a>
+            </div>
+            -->
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer" aria-label="Footer">
         <div>© 2026 • Anvesh Reddy Yeruva</div>
         <div class="links">
           <a href="Anvesh_Reddy_Yeruva_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+          <a href="mailto:anvesh.yeruva@gmail.com">Email</a>
           <a href="https://www.linkedin.com/in/yar-agfrewd/" target="_blank" rel="noopener">LinkedIn</a>
           <a href="https://github.com/anveshyeruva" target="_blank" rel="noopener">GitHub</a>
         </div>
