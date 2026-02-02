@@ -6,11 +6,11 @@ This repository hosts my public resume and portfolio page using **GitHub Pages**
 
 ## 🌐 Live Website
 **Portfolio / Resume:**  
-https://anveshyeruva.github.io/Resume/
+https://anveshyeruva.github.io/Profile/
 
 ## 📄 Resume Download
 Direct PDF link:  
-https://anveshyeruva.github.io/Resume/Anvesh_Reddy_Yeruva_Resume.pdf
+https://anveshyeruva.github.io/Profile/Anvesh_Reddy_Yeruva_Resume.pdf
 
 ## 💼 About Me
 DevOps Engineer with 7+ years of experience in IT systems and operations, focused on:
