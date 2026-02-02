@@ -3,11 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Anvesh Reddy Yeruva - DevOps Engineer | AWS | Kubernetes | Terraform | CI/CD" />
+
+  <meta name="description" content="Anvesh Reddy Yeruva - AWS DevOps Engineer | Multi-Cloud (AWS, Azure, GCP) | Kubernetes | Terraform | CI/CD | Python" />
 
   <!-- Open Graph / LinkedIn Preview -->
   <meta property="og:title" content="Anvesh Reddy Yeruva | DevOps Resume" />
-  <meta property="og:description" content="DevOps Engineer focused on AWS, Kubernetes, Terraform, CI/CD, automation, and production reliability." />
+  <meta property="og:description" content="AWS DevOps Engineer | Multi-Cloud (AWS, Azure, GCP) | Kubernetes | Terraform | CI/CD | Python" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://anveshyeruva.github.io/Resume/" />
 
@@ -17,7 +18,6 @@
     :root{
       --bg: #0b1020;
       --card: rgba(255,255,255,0.06);
-      --card2: rgba(255,255,255,0.08);
       --text: rgba(255,255,255,0.92);
       --muted: rgba(255,255,255,0.68);
       --line: rgba(255,255,255,0.12);
@@ -114,7 +114,7 @@
       margin: 0 0 12px;
       color: var(--muted);
       font-size: 15.5px;
-      max-width: 62ch;
+      max-width: 70ch;
     }
 
     .metaRow{
@@ -171,6 +171,12 @@
       background: linear-gradient(135deg, rgba(100, 120, 255, 0.30), rgba(0, 210, 255, 0.18));
     }
 
+    .btnSmall{
+      padding: 10px 12px;
+      font-size: 13px;
+      border-radius: 12px;
+    }
+
     .sideCard{
       padding: 18px;
       border: 1px solid var(--line);
@@ -193,9 +199,11 @@
       padding: 10px 0;
       border-bottom: 1px solid var(--line);
       font-size: 14px;
+      gap: 10px;
     }
     .stat:last-child{ border-bottom: none; }
     .stat span:first-child{ color: var(--muted); }
+    .stat span:last-child{ text-align: right; }
 
     .grid{
       display: grid;
@@ -245,44 +253,30 @@
     }
 
     /* Certifications */
-    .split{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: 12px;
-    }
-    .miniCard{
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.03);
-      border-radius: 14px;
-      padding: 14px;
-    }
-    .miniTitle{
-      margin: 0 0 8px;
-      font-size: 13px;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-    }
     .certItem{
       display:flex;
       flex-direction: column;
-      gap: 6px;
-      padding: 10px 0;
-      border-bottom: 1px solid var(--line);
+      gap: 10px;
+      padding-top: 8px;
     }
-    .certItem:last-child{ border-bottom: none; padding-bottom: 0; }
+    .certTop{
+      display:flex;
+      align-items:flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
     .certName{
       font-weight: 800;
-      font-size: 14px;
+      font-size: 14.5px;
       letter-spacing: -0.1px;
+      margin: 0;
     }
     .certMeta{
-      font-size: 13px;
-      color: rgba(255,255,255,0.78);
       display:flex;
       flex-wrap: wrap;
       gap: 8px;
+      margin-top: 8px;
     }
     .pill{
       display:inline-flex;
@@ -295,12 +289,6 @@
       font-size: 12px;
       color: rgba(255,255,255,0.82);
       white-space: nowrap;
-    }
-    .placeholder{
-      color: rgba(255,255,255,0.70);
-      font-size: 13px;
-      line-height: 1.6;
-      margin: 0;
     }
 
     /* Projects */
@@ -383,7 +371,6 @@
       .proj{ grid-column: span 12; }
       .wrap{ padding: 18px 14px 50px; }
       .badge{ white-space: normal; }
-      .split{ grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -403,14 +390,14 @@
           <div>
             <h1 class="name">Anvesh Reddy Yeruva</h1>
             <p class="subtitle">
-              DevOps Engineer focused on AWS, Kubernetes, Terraform, CI/CD, automation, and production reliability.
+              AWS DevOps Engineer | Multi-Cloud (AWS, Azure, GCP) | Kubernetes | Terraform | CI/CD | Python
             </p>
 
             <div class="metaRow" aria-label="Key highlights">
               <span>7+ years DevOps</span>
-              <span>AWS • Multi-cloud exposure</span>
+              <span>Multi-Cloud: AWS • Azure • GCP</span>
               <span>Kubernetes / EKS</span>
-              <span>IaC + CI/CD</span>
+              <span>Terraform • CI/CD</span>
             </div>
 
             <div class="ctaRow" aria-label="Primary actions">
@@ -433,24 +420,25 @@
 
             <div class="chips" style="margin-top:18px;" aria-label="Core skills">
               <span class="chip">AWS</span>
+              <span class="chip">Azure</span>
+              <span class="chip">GCP</span>
               <span class="chip">Kubernetes</span>
               <span class="chip">Terraform</span>
               <span class="chip">Ansible</span>
               <span class="chip">Jenkins</span>
               <span class="chip">GitHub Actions</span>
               <span class="chip">Linux</span>
-              <span class="chip">Observability</span>
-              <span class="chip">Incident Response</span>
+              <span class="chip">CloudWatch</span>
             </div>
           </div>
 
           <aside class="sideCard" aria-label="Quick stats">
             <p class="sideTitle">Highlights</p>
             <div class="stat"><span>Experience</span><span>7+ years</span></div>
-            <div class="stat"><span>Cloud</span><span>AWS + Multi-cloud</span></div>
+            <div class="stat"><span>Cloud</span><span>AWS • Azure • GCP</span></div>
             <div class="stat"><span>Containers</span><span>Kubernetes / EKS</span></div>
             <div class="stat"><span>Automation</span><span>IaC + CI/CD</span></div>
-            <div class="stat"><span>Cert</span><span>AWS SA – Pro</span></div>
+            <div class="stat"><span>Certification</span><span>AWS Solutions Architect – Professional</span></div>
           </aside>
         </section>
 
@@ -466,7 +454,7 @@
               <li>CI/CD automation with Jenkins and GitHub Actions</li>
               <li>Infrastructure as Code using Terraform and Ansible</li>
               <li>Kubernetes deployments, troubleshooting, rollbacks, and scaling</li>
-              <li>AWS: EC2, IAM, VPC, S3, RDS, CloudWatch</li>
+              <li>AWS: VPC, EC2, IAM, S3, ALB/ELB, Auto Scaling, CloudWatch</li>
             </ul>
           </div>
 
@@ -481,43 +469,24 @@
               <li>IAM least privilege, secrets handling, and secure pipelines</li>
               <li>Monitoring & alerting across infra and app layers</li>
               <li>RCA mindset: incidents → fixes → runbooks</li>
-              <li>Security control awareness (NIST-aligned)</li>
+              <li>Logging + encryption awareness (CloudTrail / KMS)</li>
             </ul>
           </div>
 
           <div class="card">
             <h3>Certifications</h3>
-            <p class="muted" style="margin:0;">
-              Current credentials + space reserved for upcoming certifications.
-            </p>
 
-            <div class="split" aria-label="Certifications grid">
-              <div class="miniCard">
-                <p class="miniTitle">Current</p>
-
-                <div class="certItem">
-                  <div class="certName">AWS Certified Solutions Architect – Professional</div>
-                  <div class="certMeta">
-                    <span class="pill">☁️ AWS</span>
-                    <span class="pill">🏗️ Architecture</span>
-                    <span class="pill">✅ Active</span>
-                  </div>
-                </div>
+            <div class="certItem" aria-label="Certification item">
+              <div class="certTop">
+                <p class="certName">AWS Solutions Architect – Professional</p>
+                <a class="btn btnSmall" href="https://www.credly.com/badges/b47ba845-520a-493e-af03-5ddd982e7df5/linked_in_profile" target="_blank" rel="noopener">
+                  🏅 View Badge
+                </a>
               </div>
 
-              <div class="miniCard">
-                <p class="miniTitle">Future</p>
-                <p class="placeholder">
-                  Add upcoming certifications here (planned or in-progress). This section is intentionally reserved so your portal stays future-proof.
-                </p>
-                <div class="projTags" style="margin-top:12px;">
-                  <span class="tag">AWS DevOps Pro</span>
-                  <span class="tag">AZ-400</span>
-                  <span class="tag">CKA/CKAD</span>
-                </div>
-                <p class="placeholder" style="margin-top:10px;">
-                  (Replace these placeholders with your real targets when ready.)
-                </p>
+              <div class="certMeta" aria-label="Certification metadata">
+                <span class="pill">☁️ AWS</span>
+                <span class="pill">✅ Active</span>
               </div>
             </div>
           </div>
@@ -538,7 +507,7 @@
           <div class="card projects">
             <h3>Featured Projects</h3>
             <p class="muted" style="margin:0;">
-              A few things I’m building and improving (with real engineering focus).
+              A few things I’m building and improving.
             </p>
 
             <div class="projGrid">
@@ -548,7 +517,7 @@
                 <div class="projTags" aria-label="Project tags">
                   <span class="tag">Python</span>
                   <span class="tag">MLflow</span>
-                  <span class="tag">Pipelines</span>
+                  <span class="tag">CI/CD</span>
                 </div>
               </a>
 
